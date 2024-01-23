@@ -1,14 +1,13 @@
 {
-  "name": "docker_web_app",
-  "version": "1.0.0",
-  "description": "Node.js on Docker",
-  "author": "First Last <first.last@example.com>",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
+  "name": "hackathon-starter",
+  "version": "8.0.1",
+  "description": "A boilerplate for Node.js web applications",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sahat/hackathon-starter.git"
   },
-  "dependencies": {
-    "express": "^4.16.1"
-  }
-  
-}
+  "license": "MIT",
+  "author": "Sahat Yalkabov",
+  "contributors": [
+    "Yashar Fakhari (https://github.com/YasharF)"
+  ],
