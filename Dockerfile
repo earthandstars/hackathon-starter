@@ -1,18 +1,23 @@
+# Stage 1: Build environment
+FROM node:20-slim AS build
+
+WORKDIR /starter
+
+COPY package*.json ./
+
+RUN npm install --production
+
+# Stage 2: Runtime environment
 FROM node:20-slim
 
 WORKDIR /starter
-ENV NODE_ENV development
 
-COPY .env.example /starter/.env.example
-COPY . /starter
+COPY --from=build /starter .
 
-RUN npm install pm2 -g
-RUN if [ "$NODE_ENV" = "production" ]; then \
-    npm install --omit=dev; \
-    else \
-    npm install; \
-    fi
+COPY .env.example .env
 
-CMD ["pm2-runtime","app.js"]
+COPY . .
+
+CMD ["npm", "start"]
 
 EXPOSE 8080
